@@ -122,6 +122,10 @@ if [ -d "$ENV_DIR" ]; then
     fi
 fi
 
+echo "=====> Writing out SOURCE_VERSION to resources/version ($SOURCE_VERSION)"
+echo $SOURCE_VERSION > $BUILD_DIR/resources/version
+echo $(date "+%Y-%m-%dT%H:%M:%S") >> $BUILD_DIR/resources/version
+
 # Calculate build command
 if [ "$BUILD_COMMAND" = "" ]; then
     if [ -x $BUILD_DIR/bin/build ]; then
